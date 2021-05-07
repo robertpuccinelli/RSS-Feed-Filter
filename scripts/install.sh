@@ -33,9 +33,9 @@ echo "3. Verifying script functionality"
 chmod +x ${script_path}/rss_update.sh
 source ${script_path}/rss_update.sh
 
-# Add update to cron to autoupdate every 6 hours
+# Add update script to cron to autoupdate every 6 hours
 (crontab -l; echo "0 */6 * * * ${script_path}/rss_update.sh") | awk '!x[$0]++' |crontab -
-# Repeat crontab command twice if first use cron use on system
+# Repeat crontab command twice if first use of cron on system
 (crontab -l; echo "0 */6 * * * ${script_path}/rss_update.sh") | awk '!x[$0]++' |crontab -
 echo "4. Added ${script_path}/rss_update.sh to cron"
 echo -e "\tCron task scheduled to run every 6 hours"
