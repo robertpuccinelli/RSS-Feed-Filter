@@ -64,7 +64,12 @@ source ./scripts/install.sh
 5. Open the HTML file in your browser to see your matches
 6. Set the file to be your browser home page
 
-**NOTE:** You might have a lot of publications listed the first day that you run the program. This is because RSS feeds can contain a full month's worth of publications. After the first day, only new content on these feeds will be discovered. If the filter isn't giving you the results you want, change your config search terms, delete the log and html file, and run the install script again. If your interests slowly change over time, you can change the config search terms without needing to delete files.
+## Tuning the Returned Results
+ You might have a lot of publications listed the first day that you run the program. This is because RSS feeds can contain a full month's worth of publications and some search terms might be too broad. However, after the first day, only new content on these feeds will be discovered. 
+ 
+ If the filter isn't giving you the results you want, change your config search terms, delete the log and html file, and run the install script again. If your interests slowly change over time, you can change the config search terms without needing to delete files.
+
+If there is a title that you find offensive or annoying, you can delete the title and link by editing the html file directly.
 
 ## How to remove the program
 1. Navigate to the directory with the terminal
