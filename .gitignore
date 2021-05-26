@@ -2,3 +2,4 @@ venv-rss
 rss_update.sh
 rss_log.txt
 rss_output.html
+.vscode*

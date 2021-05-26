@@ -61,8 +61,12 @@ The purpose of the cron task is to automatically check the RSS feeds every 6 hou
 ```bash
 source ./scripts/install.sh
 ```
-5. Open the HTML file in your browser to see your matches
-6. Set the file to be your browser home page
+5. To ensure that the script will auto update, confirm that cron is running. In Debian:
+```bash
+sudo service cron start
+```
+6. Open the HTML file in your browser to see your matches
+7. Set the file to be your browser home page
 
 ## Tuning the Returned Results
  You might have a lot of publications listed the first day that you run the program. This is because RSS feeds can contain a full month's worth of publications and some search terms might be too broad. However, after the first day, only new content on these feeds will be discovered. 

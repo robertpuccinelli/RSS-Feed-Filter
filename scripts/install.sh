@@ -23,8 +23,8 @@ if ! [ -e ${script_path}/rss_update.sh ]
 then
     touch ${script_path}/rss_update.sh
     echo '#!/bin/bash' >>  ${script_path}/rss_update.sh
-    echo "source $script_path/../env/venv-rss/bin/activate" >>  ${script_path}/ rss_update.sh
-    echo "python $script_path/../program/RSS_program.py" >>  ${script_path}/    rss_update.sh
+    echo "source $script_path/../env/venv-rss/bin/activate" >>  ${script_path}/rss_update.sh
+    echo "python $script_path/../program/rss_feed_filter.py" >>  ${script_path}/rss_update.sh
     echo 'deactivate' >> ${script_path}/rss_update.sh
 fi
 
@@ -33,9 +33,9 @@ echo "3. Verifying script functionality"
 chmod +x ${script_path}/rss_update.sh
 source ${script_path}/rss_update.sh
 
-# Add update script to cron to autoupdate every 6 hours
-(crontab -l; echo "0 */6 * * * ${script_path}/rss_update.sh") | awk '!x[$0]++' |crontab -
+# Add update script to cron to autoupdate every 3 hours
+(crontab -l; echo "0 */3 * * * ${script_path}/rss_update.sh") | awk '!x[$0]++' |crontab -
 # Repeat crontab command twice if first use of cron on system
-(crontab -l; echo "0 */6 * * * ${script_path}/rss_update.sh") | awk '!x[$0]++' |crontab -
+(crontab -l; echo "0 */3 * * * ${script_path}/rss_update.sh") | awk '!x[$0]++' |crontab -
 echo "4. Added ${script_path}/rss_update.sh to cron"
-echo -e "\tCron task scheduled to run every 6 hours"
+echo -e "\tCron task scheduled to run every 3 hours"

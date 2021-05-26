@@ -25,8 +25,8 @@ if not ('RSSLinks' in sections and
         'Files' in sections):
         raise ValueError('Config file incomplete.')
 
-file_log = config['Files']['log']
-file_output = config['Files']['output']
+file_log = BASE_DIR + '/' + config['Files']['log']
+file_output = BASE_DIR + '/' + config['Files']['output']
 
 if not os.path.isfile(file_log):
     with open(file_log, 'wt') as f:
