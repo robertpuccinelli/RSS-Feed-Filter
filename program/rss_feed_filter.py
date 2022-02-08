@@ -67,7 +67,7 @@ for feed in feed_list:
     d = feedparser.parse(feed)
         
     for entry in d.entries:
-        title = entry.title.casefold()
+        title = entry.title.replace('\n', ' ').replace('\r', '')
 
         if title not in titles_logged:
             append_title = False
@@ -85,7 +85,7 @@ for feed in feed_list:
             if append_title:
                 link = entry.link
                 match = date_insert
-                insert = f'<p style="font-size:x-large;">&bull;  <a href={link}>{entry.title}</a></h3></p>\n'
+                insert = f'<p style="font-size:x-large;">&bull;  <a href={link}>{title}</a></h3></p>\n'
                 with open(file_output, 'r+t') as f:
                     insert_string(f, date_insert, insert)
                 
